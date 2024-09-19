@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "message.h"
+#include "input.h"
 #include <png.h>
 
 
@@ -286,31 +286,16 @@ void PrintSequenceBin(char *bin, int size) {
     printf("message present in the binary sequence = %s", decode);
 }
 
-/* 
-    Comentario que não estara presente na versão do github//
-    para fazer o teste do programa eu vou esconder três mensagens diferentes em três imagens diferentes
-    e irei imprimiar na tela sua representação binaria e a sua tradução
-
-    passar 
-    ler a imagem
-    esconder a mensangem
-    recuperar a imagem
-    e printar  a imagem
-
-    o programa foi estruturado para seguir estes passos as imagens estão na pasta img
-    
-    os resultados gerados pelo programa estão no arquivo de texto saida.txt
-*/
 
 int main() {
     printf("--------------------------------------------------------------------------------------------------------------------\n");
-    const char* fileName = "./img/chaves.png";
+    const char* fileName = "./img/chaves.png"; //mude aqui o caminho da imagem
     png_bytep *RowPointer;
     int width, height;
     
-    char bin[strlen(chaves)*8];
-    for (int i = 0; i < strlen(chaves); i++) {
-        CharToBin(chaves[i], &bin[i*8]);
+    char bin[strlen(message)*8];
+    for (int i = 0; i < strlen(message); i++) {
+        CharToBin(message[i], &bin[i*8]);
     }
 
     LoadPngImage(fileName, &RowPointer, &width, &height);
@@ -318,9 +303,9 @@ int main() {
     code(RowPointer, width, height, bin);
     Save(fileName, RowPointer, width, height);
     LoadPngImage(fileName, &RowPointer, &width, &height);
-    PrintSequenceBin(RecoverMessage(RowPointer, width, height, bin), strlen(chaves));
+    PrintSequenceBin(RecoverMessage(RowPointer, width, height, bin), strlen(message));
     FreePngImage(RowPointer, height);
-    printf("--------------------------------------------------------------------------------------------------------------------\n\n");
+    printf("\n--------------------------------------------------------------------------------------------------------------------\n\n");
     
     return 0;
 }

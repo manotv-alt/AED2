@@ -1,0 +1,1 @@
+char message[] = {"Ai chavinho lindo meu amor, galo que canta corócócó!"};
