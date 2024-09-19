@@ -1,0 +1,1 @@
+char chaves[] = {"Ai chavinho lindo meu amor"};
