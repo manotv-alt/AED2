@@ -38,13 +38,16 @@ A planilha tem 10 colunas (A-J) e 10 linhas (1-10), totalizando 100 células. As
 
 1. Clone o repositório ou copie o código-fonte:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/manotv-alt/AED2.git
 
-2. Compile o código:
+2. Entre na pasta do projeto:
+   ```bash
+   cd "Planilha Eletrônica"
+
+3. Compile o código:
     ```bash
     gcc planilha.c -o planilha
 
-3. Execute o programa:
+4. Execute o programa:
     ```bash
     ./planilha
-
