@@ -41,8 +41,10 @@ A planilha tem 10 colunas (A-J) e 10 linhas (1-10), totalizando 100 células. As
    git clone https://github.com/seu-usuario/seu-repositorio.git
 
 2. Compile o código:
+    ```bash
     gcc planilha.c -o planilha
 
 3. Execute o programa:
+    ```bash
     ./planilha
 
