@@ -194,19 +194,19 @@ int main() {
 
     // Loop para aceitar entradas do usuário
     while (1) {
-        printf("\nDigite a célula (ex: A1) e o valor/fórmula (ou 'exit' para sair): ");
-        scanf("%2s", cell_ref);
+        printf("\nDigite a celula (ex: A1) e o valor/formula (ou 'exit' para sair): ");
+        scanf("%s", cell_ref);
 
         if (strcmp(cell_ref, "exit") == 0) {
             break;
         }
 
         if (!parse_cell_ref(cell_ref, &row, &col)) {
-            printf("Referência de célula inválida!\n");
+            printf("Referencia de celula invalida!\n");
             continue;
         }
 
-        printf("Digite o valor ou fórmula operações suportadas (+,-,/,*) no formato: A1 + B1 para %s: ", cell_ref);
+        printf("Digite o valor ou formula operacoes suportadas (+,-,/,*) no formato: A1 + B1 para %s: ", cell_ref);
         scanf(" %[^\n]", input);
 
         set_cell_value(row, col, input);

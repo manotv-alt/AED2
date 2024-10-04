@@ -36,13 +36,25 @@ A planilha tem 10 colunas (A-J) e 10 linhas (1-10), totalizando 100 células. As
 
 ### Passos para Executar
 
-1. Clone o repositório ou copie o código-fonte:
+1. Clone o repositório:
    ```bash
    git clone https://github.com/manotv-alt/AED2.git
 
-2. Entre na pasta do projeto:
+2. Entre na pasta do repositório:
    ```bash
-   cd "Planilha Eletrônica"
+   cd ./AED2/
+
+3. Mantendo somente a pasta do projeto desejado (Windows):
+   ```bash
+   Get-ChildItem -Exclude 'Planilha Eletrônica' | Remove-Item -Recurse -Force
+
+3. Mantendo somente a pasta do projeto desejado (Linux):
+   ```bash
+   find . -maxdepth 1 ! -name 'Planilha Eletrônica' ! -name '.' -exec rm -rf {} +
+
+4. Entre na pasta do projeto:
+   ```bash
+   cd "/Planilha Eletrônica/"
 
 3. Compile o código:
     ```bash
