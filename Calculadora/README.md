@@ -12,23 +12,41 @@ Este projeto é uma **calculadora de notação pós-fixada (RPN - Reverse Polish
 
 ---
 
-## 🛠️ **Compilação e Execução**
-
 ### **Pré-requisitos**
 - GCC ou qualquer compilador C.
 - Terminal ou CMD para rodar o programa.
 
-### **Compilar o programa**
+---
 
-```bash
-gcc calculator.c -o calculator
-```
+### Passos para Executar
 
-### **Executar**
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/manotv-alt/AED2.git
 
-```bash
-./calculator
-```
+2. Entre na pasta do repositório:
+   ```bash
+   cd ./AED2/
+
+3. Mantendo somente a pasta do projeto desejado (Windows):
+   ```bash
+   Get-ChildItem -Exclude 'Calculadora' | Remove-Item -Recurse -Force
+
+3. Mantendo somente a pasta do projeto desejado (Linux):
+   ```bash
+   find . -maxdepth 1 ! -name 'Calculadora' ! -name '.' -exec rm -rf {} +
+
+4. Entre na pasta do projeto:
+   ```bash
+   cd "/Calculadora/"
+
+3. Compile o código:
+    ```bash
+    gcc calculator.c -o calculator
+
+4. Execute o programa:
+    ```bash
+    ./calculator
 
 ---
 
