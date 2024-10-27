@@ -15,6 +15,10 @@ void initStack(Stack *s) {
     s->top = -1;
 }
 
+int isEmpty(Stack *s) {
+    return s->top == -1;
+}
+
 int isFull(Stack *s) {
     return s->top == MAX - 1;
 }
@@ -109,18 +113,18 @@ double evaluatePostfix(const char *expression) {
 
 void printBanner() {
     printf("========================================\n");
-    printf("      🧮 CALCULADORA PÓS-FIXADA 🧮     \n");
+    printf("      🧮 CALCULADORA PÓS-FIXADA 🧮      \n");
     printf("========================================\n");
-    printf("  Digite uma expressão em notação RPN:  \n");
+    printf("  Digite uma expressão em notação RPN   \n");
     printf("  Exemplos: 10 5 + 2 *   ou   3 4 + 7 - \n");
-    printf("        Ou digite 'exit' para sair      \n");
+    printf("        ou digite 'exit' para sair:     \n");
     printf("----------------------------------------\n");
 }
 
 void printResult(double result) {
     printf("----------------------------------------\n");
-    printf("📊 Resultado: %.2lf\n", result);
-    printf("========================================\n");
+    printf("           📊 Resultado: %.2lf          \n", result);
+    printf("========================================\n\n");
 }
 
 int main() {
@@ -132,8 +136,10 @@ int main() {
         printf("➤ ");
         fgets(expression, sizeof(expression), stdin);
         expression[strcspn(expression, "\n")] = '\0';  // Remove o '\n'
-
-        if(expression == "exit") break;
+        
+        if (strcmp(expression, "exit") == 0) {
+            break;
+        }
 
         double result = evaluatePostfix(expression);
         printResult(result);
