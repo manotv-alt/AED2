@@ -2,11 +2,24 @@
 
 int main() {
     int a;
-    if (a > 0) {
-        printf("Positivo\n");
+
+    scanf("%d", &a);
+    printf("%d", a);
+
+    if ( a > 0 ) {
+        printf("%d é > que 0\n");
     }
-    for (int i = 0; i < 10; i++) {
-        printf("%d\n", i);
+    else {
+        a--;
     }
+
+    for(int i = 0; i < a; i++) {
+        a++;
+    }
+
+    while(1) {
+        a++;
+    }
+
     return 0;
 }
