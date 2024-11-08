@@ -59,7 +59,7 @@ int search(struct Node* root, int key, int* steps) {
 // Funcao para exibir um cabecalho
 void exibirCabecalho() {
     printf("=====================================\n");
-    printf("  Programa: Arvore Binaria de Busca  \n");
+    printf("       Arvore Binaria de Busca       \n");
     printf("=====================================\n");
 }
 
