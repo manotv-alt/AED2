@@ -13,7 +13,7 @@ Este é um programa em C que implementa uma **Árvore Binária de Busca (ABB)**.
 
 ## Estrutura do Projeto
 
-- `main.c`: Código-fonte do programa principal, incluindo as funções de criação, inserção e busca na árvore binária.
+- `abb.c`: Código-fonte do programa principal, incluindo as funções de criação, inserção e busca na árvore binária.
 
 ## Como Usar
 
