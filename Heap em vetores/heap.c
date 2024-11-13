@@ -279,18 +279,39 @@ void insert(MaxHeap *heap, int value) {
     heapifyUp(heap, heap->size - 1);
 }
 
-// Função para remover o elemento maximo (raiz) do heap
-int removeMax(MaxHeap *heap) {
+// Função para remover o elemento do heap
+int removeElement(MaxHeap *heap, int valor) {
     if (heap->size == 0) {
-        printf("Heap esta vazio!\n");
+        printf("Heap está vazio!\n");
         return -1;
     }
 
-    int max = heap->data[0];
-    heap->data[0] = heap->data[heap->size - 1];
+    // Encontrar o índice do valor a ser removido
+    int index = -1;
+    for (int i = 0; i < heap->size; i++) {
+        if (heap->data[i] == valor) {
+            index = i;
+            break;
+        }
+    }
+
+    // Se o valor não for encontrado, retornar erro
+    if (index == -1) {
+        printf("Valor %d não encontrado no heap!\n", valor);
+        return -1;
+    }
+
+    // Salvar o valor do nó para retornar após a remoção
+    int elementoRemovido = heap->data[index];
+
+    // Substituir o elemento a ser removido pelo último elemento do heap
+    heap->data[index] = heap->data[heap->size - 1];
     heap->size--;
-    heapifyDown(heap, 0);
-    return max;
+
+    // Reorganizar o heap a partir do índice onde ocorreu a remoção
+    heapifyDown(heap, index);
+
+    return elementoRemovido;
 }
 
 // Função para consultar um elemento no heap
@@ -368,7 +389,7 @@ void menu() {
     printf("   Gerenciador de Heap Maximo");
     printf("\n================================\n");
     printf("1. Inserir um elemento\n");
-    printf("2. Remover o maximo\n");
+    printf("2. Remover um elemento\n");
     printf("3. Consultar elemento\n");
     printf("0. Sair");
     printf("\n================================\n");
@@ -379,7 +400,7 @@ int main() {
     MaxHeap heap;
     heap.size = 0;
 
-    int opcao, valor;
+    int opcao, valor, value;
 
     do {
         menu();
@@ -393,7 +414,9 @@ int main() {
                 imprimirArvore(heap.data, heap.size);
                 break;
             case 2:
-                valor = removeMax(&heap);
+                printf("Digite um valor para remover: ");
+                scanf("%d", &value);
+                valor = removeElement(&heap, value);
                 if (valor != -1) {
                     printf("Valor removido: %d\n", valor);
                     imprimirArvore(heap.data, heap.size);
